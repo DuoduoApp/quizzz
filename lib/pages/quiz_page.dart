@@ -17,8 +17,12 @@ class QuizPageState extends State<QuizPage> {
         new Column(
           // main page
           children: <Widget>[
-            new AnswerButton(true),
-            new AnswerButton(false),
+            new AnswerButton(true, () => {
+              print("true");
+            }),
+            new AnswerButton(false, () => {
+              print("false");
+            }),
           ],
         )
       ],
