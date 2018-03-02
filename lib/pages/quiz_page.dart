@@ -25,7 +25,7 @@ class QuizPageState extends State<QuizPage> {
             new AnswerButton(false, () => print("false")),
           ],
         ),
-        new CorrectWrongOverlay()
+        new CorrectWrongOverlay(true)
       ],
     );
   }
