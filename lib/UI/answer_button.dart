@@ -10,15 +10,21 @@ class AnswerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Expanded(
         child: new Material(
-      color: _answer ? Colors.greenAccent : Colors.redAccent,
-      child: new InkWell(
-        onTap: () => _onTap(),
-        child: new Center(
-          child: new Container(
-            child: new Text(_answer.toString().toUpperCase()),
-          ),
-        ),
-      ),
-    ));
+            color: _answer ? Colors.greenAccent : Colors.redAccent,
+            child: new InkWell(
+              onTap: () => _onTap(),
+              child: new Center(
+                child: new Container(
+                  child: new Text(
+                    _answer.toString().toUpperCase(),
+                    style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ),
+                ),
+              ),
+            )));
   }
 }
