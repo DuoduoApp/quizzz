@@ -20,10 +20,22 @@ class QuizPageState extends State<QuizPage> {
                 child: new Material(
               color: Colors.greenAccent,
               child: new InkWell(
-                onTap: () => println("You answered true"),
+                onTap: () => print("You answered true"),
                 child: new Center(
                   child: new Container(
                     child: new Text("True"),
+                  ),
+                ),
+              ),
+            )),
+            new Expanded(
+                child: new Material(
+              color: Colors.redAccent,
+              child: new InkWell(
+                onTap: () => print("You answered false"),
+                child: new Center(
+                  child: new Container(
+                    child: new Text("False"),
                   ),
                 ),
               ),
