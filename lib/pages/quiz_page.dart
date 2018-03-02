@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 
 import "../utils/questions.dart";
 import "../utils/quiz.dart";
+import "../UI/answer_button.dart";
 
 class QuizPage extends StatefulWidget {
   @override
@@ -16,30 +17,8 @@ class QuizPageState extends State<QuizPage> {
         new Column(
           // main page
           children: <Widget>[
-            new Expanded(
-                child: new Material(
-              color: Colors.greenAccent,
-              child: new InkWell(
-                onTap: () => print("You answered true"),
-                child: new Center(
-                  child: new Container(
-                    child: new Text("True"),
-                  ),
-                ),
-              ),
-            )),
-            new Expanded(
-                child: new Material(
-              color: Colors.redAccent,
-              child: new InkWell(
-                onTap: () => print("You answered false"),
-                child: new Center(
-                  child: new Container(
-                    child: new Text("False"),
-                  ),
-                ),
-              ),
-            ))
+            new AnswerButton(true),
+            new AnswerButton(false),
           ],
         )
       ],
