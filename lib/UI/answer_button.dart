@@ -15,6 +15,10 @@ class AnswerButton extends StatelessWidget {
               onTap: () => _onTap(),
               child: new Center(
                 child: new Container(
+                  decoration: new BoxDecoration(
+                    border: new Border.all(color: Colors.white, width: 5.0),
+                  ),
+                  padding: new EdgeInsets.all(20.0),
                   child: new Text(
                     _answer.toString().toUpperCase(),
                     style: new TextStyle(
