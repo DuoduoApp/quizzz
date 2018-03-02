@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "dart:math";
 
 class CorrectWrongOverlay extends StatefulWidget {
   final bool _isCorrect;
@@ -9,7 +10,24 @@ class CorrectWrongOverlay extends StatefulWidget {
   State createState() => new CorrectWrongOverlayState();
 }
 
-class CorrectWrongOverlayState extends State<CorrectWrongOverlay> {
+class CorrectWrongOverlayState extends State<CorrectWrongOverlay>
+    with SingleTickerProviderStateMixin {
+  Animation<double> _iconAnimation;
+  AnimationController _iconAnimationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _iconAnimationController = new AnimationController(
+        duration: new Duration(seconds: 1), vsync: this);
+
+    _iconAnimation = new CurvedAnimation(
+        parent: _iconAnimationController, curve: Curves.linear);
+
+    _iconAnimation.addListener(() => this.setState(() {}));
+    _iconAnimationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Material(
@@ -22,10 +40,12 @@ class CorrectWrongOverlayState extends State<CorrectWrongOverlay> {
             new Container(
               decoration: new BoxDecoration(
                   color: Colors.white, shape: BoxShape.circle),
-              child: new Icon(
-                widget._isCorrect ? Icons.done : Icons.clear,
-                size: 100.0,
-              ),
+              child: new Transform.rotate(
+                  angle: _iconAnimation.value * 2 * PI,
+                  child: new Icon(
+                    widget._isCorrect ? Icons.done : Icons.clear,
+                    size: _iconAnimation.value * 100.0,
+                  )),
             ),
             new Padding(
               padding: new EdgeInsets.only(bottom: 30.0),
