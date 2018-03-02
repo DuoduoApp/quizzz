@@ -17,10 +17,11 @@ class LandingPage extends StatelessWidget {
               new Text("Tap to Start!",
                   style: new TextStyle(
                       color: Colors.white,
-                      fontSize: 50.0,
+                      fontSize: 30.0,
                       fontWeight: FontWeight.bold))
             ],
           ),
+          onTap: () => print("Tap!"),
         ));
   }
 }
