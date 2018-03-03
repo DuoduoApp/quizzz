@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "quiz_page.dart";
 
 class LandingPage extends StatelessWidget {
   @override
@@ -21,7 +22,8 @@ class LandingPage extends StatelessWidget {
                       fontWeight: FontWeight.bold))
             ],
           ),
-          onTap: () => print("Tap!"),
+          onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              builder: (BuildContext context) => new QuizPage())),
         ));
   }
 }
